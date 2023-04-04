@@ -28,10 +28,10 @@ public class User {
 
     private Date registered;
 
-//    @JoinColumn
-//    @ElementCollection(fetch = FetchType.EAGER)
-//    private Set<Role> roles;
+    @JoinColumn
+    @ElementCollection(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
-//    @OneToMany
-//    private List<Car> cars;
+    @OneToMany
+    private List<Car> cars;
 }

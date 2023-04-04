@@ -5,27 +5,24 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.List;
+import java.util.Date;
 
 @Data
 @Entity
-@NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "cars")
-public class Car {
-
+@NoArgsConstructor
+@Table(name = "service_record")
+public class ServiceRecord {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "vin")
-    private String VIN;
+    private String record;
 
-    @Enumerated(EnumType.ORDINAL)
-    private Motor motor;
+    @Column(name = "service_date")
+    private Date serviceDate;
 
-    @OneToMany
-    private List<ServiceRecord> serviceNotes;
-
+    @Column(name = "service_type")
+    private ServiceType serviceType;
 }
