@@ -24,5 +24,5 @@ public class ServiceRecord {
     private Date serviceDate;
 
     @Column(name = "service_type")
-    private ServiceType serviceType;
+    private String serviceType;
 }

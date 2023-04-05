@@ -22,10 +22,11 @@ public class Car {
     @Column(name = "vin")
     private String VIN;
 
-    @Enumerated(EnumType.ORDINAL)
-    private Motor motor;
+//    @Enumerated(EnumType.ORDINAL)
+    private String motor;
 
     @OneToMany
-    private List<ServiceRecord> serviceNotes;
+    @JoinColumn(name = "car_id")
+    private List<ServiceRecord> serviceRecords;
 
 }

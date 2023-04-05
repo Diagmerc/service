@@ -33,5 +33,6 @@ public class User {
     private Set<Role> roles;
 
     @OneToMany
+    @JoinColumn(name = "user_id")
     private List<Car> cars;
 }
