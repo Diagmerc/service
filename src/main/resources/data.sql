@@ -1,5 +1,5 @@
-INSERT INTO users (name, password, email)
-VALUES ('Vasiliy', '123', 'dfsf@mail.ru');
+INSERT INTO users (username, password, enabled, email)
+VALUES ('Vasiliy', '123', true, 'dfsf@mail.ru');
 
 INSERT INTO cars (user_id, vin, motor)
 VALUES (1,'WDC1641821A223521', 'BENZIN');

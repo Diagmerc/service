@@ -1,13 +1,17 @@
 package ru.lozovoi.service.service;
 
+import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import ru.lozovoi.service.dao.UserDAO;
 import ru.lozovoi.service.domain.User;
+import ru.lozovoi.service.security.UserDetailsImpl;
 
-import java.util.List;
+import java.util.Optional;
 
 @Service
-public class UserService {
+public class UserService implements UserDetailsService {
 
     private final UserDAO userDAO;
 
@@ -15,7 +19,13 @@ public class UserService {
         this.userDAO = userDAO;
     }
 
-    public List<User> getAll(){
-        return userDAO.findAll();
+
+    @Override
+    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+        Optional<User> user = userDAO.findByUsername(username);
+
+        if (user.isEmpty())
+            throw new UsernameNotFoundException("User not found!");
+        return new UserDetailsImpl(user.get());
     }
 }

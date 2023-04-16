@@ -19,9 +19,8 @@ public class DemoController {
 
 
     @RequestMapping
-    public List<User> getAll() {
-        userService.getAll().forEach(System.out::println);
-        return userService.getAll();
+    public String testSecurity() {
+        return "OK";
     }
 
 }
