@@ -1,14 +1,11 @@
 package ru.lozovoi.service.controller;
 
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import ru.lozovoi.service.domain.User;
 import ru.lozovoi.service.service.UserService;
 
-import java.util.List;
 
 @RestController
-@RequestMapping("/users")
 public class DemoController {
 
     private final UserService userService;
@@ -18,9 +15,14 @@ public class DemoController {
     }
 
 
-    @RequestMapping
-    public String testSecurity() {
-        return "OK";
+    @GetMapping("/users")
+    public String forAdmin() {
+        return "Admin OK";
+    }
+
+    @GetMapping("/user")
+    public String forUser() {
+        return "User OK";
     }
 
 }

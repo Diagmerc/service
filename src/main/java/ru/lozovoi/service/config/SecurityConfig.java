@@ -4,8 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
 import ru.lozovoi.service.service.UserService;
 
 @Configuration
@@ -20,10 +22,24 @@ public class SecurityConfig {
         this.userService = userService;
     }
 
-//    @Bean
-//    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-//
-//    }
+    @Bean
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        return http.csrf().disable().
+                authorizeHttpRequests(auth-> auth.requestMatchers("/auth/login", "/auth/registration", "/error")
+                        .permitAll()
+                        .requestMatchers("/users").hasRole("ADMIN")
+                        .anyRequest()
+                        .authenticated()
+                )
+                .formLogin()
+                .loginPage("/auth/login")
+                .loginProcessingUrl("/process_login")
+                .defaultSuccessUrl("/", true)
+                .failureForwardUrl("/auth/login?error")
+                .and()
+                .build();
+
+    }
 
     @Bean
     public BCryptPasswordEncoder passwordEncoder() {

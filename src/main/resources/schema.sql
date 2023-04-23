@@ -4,16 +4,12 @@ CREATE TABLE users
     username varchar(255) not null,
     password varchar  not null,
     email varchar     ,
-    registered timestamp default now() not null,
+    registered timestamp default now(),
+    role varchar(255) not null,
     primary key (id)
 );
 
-CREATE TABLE user_roles
-(
-    user_id INTEGER NOT NULL,
-    role    VARCHAR(255) NOT NULL,
-    FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-);
+
 
 CREATE TABLE cars
 (
