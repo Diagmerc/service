@@ -5,10 +5,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import ru.lozovoi.service.dao.UserDAO;
-import ru.lozovoi.service.domain.Role;
 import ru.lozovoi.service.domain.User;
-
-import java.util.Collections;
 
 @Service
 public class RegistrationService {
