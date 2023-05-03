@@ -11,7 +11,7 @@
 <div class="container text-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Здесь будет название</a>
+            <a class="navbar-brand" href="#">#</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,10 +28,11 @@
                         <a class="nav-link" href="#">Как добраться</a>
                     </li>
                 </ul>
-                <span class="navbar-text">
-        Войти / Зарегистрироваться
+                <ul class="navbar-nav me-right mb-0 mb-lg-0">
+                    <a class="nav-link" href="/auth/login">Войти</a>
+                    <a class="nav-link" href="/auth/registration">Зарегистрироваться</a>
                     <a class="nav-link" th:href="@{/logout}" method="post">Выйти</a>
-                </span>
+                </ul>
             </div>
         </div>
     </nav>
