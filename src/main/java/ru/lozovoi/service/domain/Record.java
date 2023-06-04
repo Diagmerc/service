@@ -11,18 +11,18 @@ import java.util.Date;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "service_record")
-public class ServiceRecord {
+@Table(name = "record")
+public class Record {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String record;
+    private String text;
 
-    @Column(name = "service_date")
-    private Date serviceDate;
+    @Column(name = "date")
+    private Date date;
 
-    @Column(name = "service_type")
-    private String serviceType;
+    @Column(name = "type")
+    private String type;
 }

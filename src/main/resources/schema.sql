@@ -20,12 +20,12 @@ CREATE TABLE cars
     primary key (id),
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
-CREATE TABLE service_record
+CREATE TABLE record
 (
     car_id integer not null,
     id IDENTITY not null,
-    record varchar not null,
-    service_date timestamp default now() not null,
-    service_type varchar not null,
+    text varchar not null,
+    date timestamp default now() not null,
+    type varchar not null,
     FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
 )

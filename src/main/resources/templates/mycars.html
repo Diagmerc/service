@@ -36,30 +36,19 @@
 <table class="table table-dark table-striped">
   <thead>
   <tr>
-    <th scope="col">#</th>
     <th scope="col">Тип ремонта</th>
     <th scope="col">Описание</th>
     <th scope="col">Дата</th>
   </tr>
   </thead>
   <tbody>
-  <tr>
-    <th scope="row">1</th>
-    <td>ТО</td>
-    <td>Плановое ТО</td>
-    <td>04-02-2022</td>
+  <tr th:if="${record.empty}">
+    <td colspan="2"> No Records Available </td>
   </tr>
-  <tr>
-    <th scope="row">2</th>
-    <td>Ремонт подвески</td>
-    <td>Замена подшипника</td>
-    <td>01-01-2023</td>
-  </tr>
-  <tr>
-    <th scope="row">3</th>
-    <td>Диагностика</td>
-    <td>Диагностика двигателя</td>
-    <td>24-07-2022</td>
+  <tr th:each="rec : ${record}">
+    <td><span th:text="${rec.type}"> Type </span></td>
+    <td><span th:text="${rec.text}"> Record </span></td>
+    <td><span th:text="${rec.date}"> Date </span></td>
   </tr>
   </tbody>
 </table>

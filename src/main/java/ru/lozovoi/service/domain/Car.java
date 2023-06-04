@@ -27,6 +27,6 @@ public class Car {
 
     @OneToMany
     @JoinColumn(name = "car_id")
-    private List<ServiceRecord> serviceRecords;
+    private List<Record> records;
 
 }
