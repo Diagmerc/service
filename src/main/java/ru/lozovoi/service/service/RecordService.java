@@ -1,6 +1,7 @@
 package ru.lozovoi.service.service;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import ru.lozovoi.service.dao.RecordDAO;
 import ru.lozovoi.service.domain.Record;
 
@@ -16,6 +17,11 @@ public class RecordService {
 
     public List<Record> recordsList() {
         return records.findAll();
+    }
+
+    @Transactional
+    public Record create(Record record){
+        return records.save(record);
     }
 
 }

@@ -9,6 +9,6 @@ public class RootController {
 
     @RequestMapping
     public String getRoot() {
-        return "index2";
+        return "index";
     }
 }

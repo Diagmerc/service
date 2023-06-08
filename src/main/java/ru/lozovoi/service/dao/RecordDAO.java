@@ -6,5 +6,4 @@ import ru.lozovoi.service.domain.Record;
 
 @Transactional(readOnly = true)
 public interface RecordDAO extends JpaRepository<Record, Integer> {
-
 }

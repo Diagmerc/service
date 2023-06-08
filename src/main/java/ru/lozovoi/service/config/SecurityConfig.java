@@ -24,20 +24,21 @@ public class SecurityConfig {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
-        return http.csrf().disable().
-                authorizeHttpRequests(auth-> auth.requestMatchers("/auth/login", "/auth/registration", "/error", "/")
+        http.csrf().disable().
+                authorizeHttpRequests(auth -> auth.requestMatchers("/auth/login", "/auth/registration", "/error", "/")
                         .permitAll()
                         .requestMatchers("/users").hasRole("ADMIN")
                         .anyRequest()
-                        .authenticated()
+                        .permitAll()//must be authenticated
                 )
                 .formLogin()
                 .loginPage("/auth/login")
                 .loginProcessingUrl("/process_login")
                 .defaultSuccessUrl("/", true)
                 .failureForwardUrl("/auth/login?error")
-                .and()
-                .build();
+                .and();
+
+        return http.build();
 
     }
 
@@ -53,5 +54,4 @@ public class SecurityConfig {
         auth.setPasswordEncoder(passwordEncoder());
         return auth;
     }
-
 }

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Add Record</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/record}" th:object="${record}" method="post">
+    <label for="type">Type</label>
+    <input type="text" th:field="*{type}" id="type" placeholder="Type">
+    <label for="text">Text</label>
+    <input type="text" th:field="*{text}" id="text" placeholder="Text">
+<!--    <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>-->
+    <label for="date">Date</label>
+    <input type="datetime-local" th:field="*{date}" id="date" placeholder="Date">
+<!--    <label for="id">Id</label>-->
+<!--    <input type="number" th:field="*{id}" id="id" placeholder="Id">-->
+<!--    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>-->
+    <input type="submit" value="Add Record">
+</form>
+
+</body>
+</html>
