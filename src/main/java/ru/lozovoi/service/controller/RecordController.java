@@ -1,23 +1,27 @@
 package ru.lozovoi.service.controller;
 
 import jakarta.validation.Valid;
-import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import ru.lozovoi.service.dao.UserDAO;
 import ru.lozovoi.service.domain.Record;
+import ru.lozovoi.service.domain.User;
 import ru.lozovoi.service.repository.RecordRepository;
-import ru.lozovoi.service.security.AuthUser;
+
+import java.security.Principal;
+import java.util.Optional;
 
 @Controller
 public class RecordController {
 
     RecordRepository recordRepository;
 
-    public RecordController(RecordRepository recordRepository) {
+    UserDAO userDAO;
+
+    public RecordController(RecordRepository recordRepository, UserDAO userDAO) {
         this.recordRepository = recordRepository;
+        this.userDAO = userDAO;
     }
 
     @GetMapping("/cars/recordForm")
@@ -26,13 +30,12 @@ public class RecordController {
     }
 
     @PostMapping(value = "/record")
-    public String create(@Valid Record record, BindingResult result, Model model, @AuthenticationPrincipal AuthUser authUser) {
+    public String create(@Valid Record record, Principal principal) {
 //        if (result.hasErrors()) {
 //            return "record-form";
 //        }
-        long id = authUser.id();
-
-        recordRepository.save(record, id);
+        Optional<User> byUsername = userDAO.findByUsername(principal.getName());
+        recordRepository.save(record);
 
         return "redirect:/cars";
     }

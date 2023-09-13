@@ -13,9 +13,7 @@ public class RecordRepository {
         this.recordDAO = recordDAO;
     }
 
-    public Record save(Record record, long id) {
-        record.setId(id);
-
+    public Record save(Record record) {
         return recordDAO.save(record);
     }
 }
