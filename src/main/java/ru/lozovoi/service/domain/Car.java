@@ -19,6 +19,9 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(name = "user_id")
+    private Integer user_id;
+
     @Column(name = "vin")
     private String VIN;
 

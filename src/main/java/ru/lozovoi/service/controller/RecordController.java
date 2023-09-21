@@ -35,6 +35,8 @@ public class RecordController {
 //            return "record-form";
 //        }
         Optional<User> byUsername = userDAO.findByUsername(principal.getName());
+        Long id = byUsername.get().getCars().stream().findFirst().get().getId();
+        record.setCar_id(id);
         recordRepository.save(record);
 
         return "redirect:/cars";
