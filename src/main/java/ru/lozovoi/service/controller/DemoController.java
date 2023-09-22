@@ -20,12 +20,6 @@ public class DemoController {
         this.userDAO = userDAO;
     }
 
-    @GetMapping("/users")
-    public String forAdmin(Principal principal) {
-        String name = principal.getName();
-        return name + " ok ";
-    }
-
     @GetMapping("/user")
     public String forUser() {
         return "User OK";

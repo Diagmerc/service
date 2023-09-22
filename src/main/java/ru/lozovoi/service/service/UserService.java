@@ -8,6 +8,7 @@ import ru.lozovoi.service.dao.UserDAO;
 import ru.lozovoi.service.domain.User;
 import ru.lozovoi.service.security.UserDetailsImpl;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,9 @@ public class UserService implements UserDetailsService {
         if (user.isEmpty())
             throw new UsernameNotFoundException("User not found!");
         return new UserDetailsImpl(user.get());
+    }
+
+    public List<User> getAll(){
+        return (List<User>) userDAO.findAll();
     }
 }

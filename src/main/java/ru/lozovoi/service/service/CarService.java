@@ -16,10 +16,6 @@ public class CarService {
         this.carDAO = carDAO;
     }
 
-    public List<Car> carsList() {
-        return carDAO.findAll();
-    }
-
     public List<Car> getCar() {
         return carDAO.findAll();
     }
