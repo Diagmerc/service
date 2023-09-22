@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <title>Add Car</title>
+</head>
+<body>
+
+<form action="#" th:action="@{/cars}" th:object="${car}" method="post">
+    <label for="type">VIN</label>
+    <input type="text" th:field="*{VIN}" id="type" placeholder="VIN">
+    <label for="text">Motor</label>
+    <input type="text" th:field="*{motor}" id="text" placeholder="Motor">
+    <!--    <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>-->
+    <!--    <label for="id">Id</label>-->
+    <!--    <input type="number" th:field="*{id}" id="id" placeholder="Id">-->
+    <!--    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>-->
+    <input type="submit" value="Add Car">
+</form>
+
+</body>
+</html>
