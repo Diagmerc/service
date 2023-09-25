@@ -7,7 +7,8 @@ VALUES ('User', '$2a$10$X0wSyjWLDIgn.mS1Cm5ZbeBLVuxQedcLFBitGKHyqU9q1GphmBmgq', 
 --        ('ROLE_ADMIN', 2);
 
 INSERT INTO cars (user_id, vin, motor)
-VALUES (1,'WDC1641821A223521', 'BENZIN');
+VALUES (1,'WDC1641821A223521', 'BENZIN'),
+       (1,'WDC1661821A223521', 'BENZIN');
 
 INSERT INTO record (car_id, text, date, type)
 VALUES (1, 'change oil', '2020-01-30 10:00:00',  'PLANNED'),

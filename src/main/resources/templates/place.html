@@ -33,28 +33,7 @@
       </div>
     </div>
   </nav>
-  <table class="table table-dark table-striped">
-    <thead>
-    <tr>
-      <th scope="col">Автомобиль</th>
-      <th scope="col">Двигатель</th>
-      <th scope="col">Записи</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${car.isEmpty}">
-      <td colspan="2"> No Records Available </td>
-    </tr>
-    <tr th:each="cr : ${car}">
-      <td><span th:text="${cr.VIN}"> VIN </span></td>
-      <td><span th:text="${cr.motor}"> Motor </span></td>
-      <td>  <a href="/record" class="btn btn-dark" role="button">Записи</a></td>
-
-    </tr>
-    </tbody>
-  </table>
-  <a href="/cars/carForm" class="btn btn-dark" role="button">Add</a>
-  <button type="button" class="btn btn-secondary">Edit</button></div>
+<img src="https://avatars.mds.yandex.net/i?id=04495031bd96a8183c819bddc238483a_l-9147831-images-thumbs&n=13">
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>

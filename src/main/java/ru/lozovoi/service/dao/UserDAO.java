@@ -9,4 +9,6 @@ import java.util.Optional;
 @Transactional(readOnly = true)
 public interface UserDAO extends CrudRepository<User, Long> {
     Optional<User> findByUsername(String username);
+
+
 }

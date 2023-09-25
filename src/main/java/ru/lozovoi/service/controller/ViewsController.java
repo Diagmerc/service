@@ -18,15 +18,13 @@ public class ViewsController {
         this.carService = carService;
     }
 
-    @GetMapping("/cars")
-    public String getAll(Model model) {
-        model.addAttribute("car", carService.getCar());
-        return "mycars";
-    }
-
     @GetMapping("/record")
     public String getAllrecords(Model model) {
         model.addAttribute("record", recordService.recordsList());
         return "records";
+    }
+    @GetMapping("/place")
+    public String getPlaceView() {
+        return "place";
     }
 }
