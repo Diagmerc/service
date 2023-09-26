@@ -5,7 +5,6 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.lozovoi.service.dao.CarDAO;
 import ru.lozovoi.service.domain.Car;
 
-import java.util.Collections;
 import java.util.List;
 
 @Service

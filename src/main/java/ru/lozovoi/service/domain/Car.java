@@ -1,6 +1,5 @@
 package ru.lozovoi.service.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +15,6 @@ import java.util.List;
 @AllArgsConstructor
 @Table(name = "cars")
 public class Car {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -37,5 +35,4 @@ public class Car {
     @OnDelete(action = OnDeleteAction.CASCADE)
 //    @NotNull
     private User user;
-
 }
