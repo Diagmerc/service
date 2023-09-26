@@ -48,7 +48,7 @@
     <tr th:each="cr : ${car}">
       <td><span th:text="${cr.VIN}"> VIN </span></td>
       <td><span th:text="${cr.motor}"> Motor </span></td>
-      <td>  <a href="/record" class="btn btn-dark" role="button">Записи</a></td>
+      <td>  <a href="/record" class="btn btn-dark" role="button" method="post" th:object="${cr}">Записи</a></td>
 
     </tr>
     </tbody>

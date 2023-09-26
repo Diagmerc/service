@@ -28,6 +28,7 @@ public class Car {
 
     @OneToMany
     @JoinColumn(name = "car_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Record> records;
 
     @ManyToOne(fetch = FetchType.LAZY)

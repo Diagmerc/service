@@ -15,8 +15,8 @@ public class RecordService {
         this.records = records;
     }
 
-    public List<Record> recordsList() {
-        return records.findAll();
+    public List<Record> recordsList(Long id) {
+        return records.findAllById(id).stream().toList();
     }
 
     @Transactional

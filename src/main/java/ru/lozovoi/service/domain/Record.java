@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.time.LocalDateTime;
 
@@ -18,8 +20,8 @@ public class Record {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "car_id")
-    private Long car_id;
+//    @Column(name = "car_id")
+//    private Long car_id;
 
     private String text;
 
@@ -28,4 +30,9 @@ public class Record {
 
     @Column(name = "type")
     private String type;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "car_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+    private Car car;
 }
