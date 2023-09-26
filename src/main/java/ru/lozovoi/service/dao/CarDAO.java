@@ -10,6 +10,6 @@ import java.util.List;
 
 @Transactional(readOnly = true)
 public interface CarDAO extends JpaRepository<Car, Long> {
-    @Query("SELECT c FROM Car c WHERE c.user_id =:userId")
+    @Query("SELECT c FROM Car c WHERE c.user.id =:userId")
     List<Car> findAllById(@Param("userId")Long id);
 }

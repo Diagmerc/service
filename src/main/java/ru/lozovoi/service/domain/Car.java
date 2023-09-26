@@ -1,9 +1,12 @@
 package ru.lozovoi.service.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.List;
 
@@ -19,9 +22,6 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "user_id")
-    private Integer user_id;
-
     @Column(name = "vin")
     private String VIN;
 
@@ -31,5 +31,11 @@ public class Car {
     @OneToMany
     @JoinColumn(name = "car_id")
     private List<Record> records;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "user_id", nullable = false)
+    @OnDelete(action = OnDeleteAction.CASCADE)
+//    @NotNull
+    private User user;
 
 }

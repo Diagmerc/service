@@ -10,11 +10,11 @@ CREATE TABLE users
 );
 CREATE TABLE cars
 (
-    user_id integer not null,
+--    user_id integer not null,
     id IDENTITY not null,
     vin varchar not null,
     motor varchar not null,
-    primary key (id),
+    user_id     INTEGER      NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
 );
 CREATE TABLE record

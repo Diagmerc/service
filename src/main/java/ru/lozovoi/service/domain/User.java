@@ -2,6 +2,8 @@ package ru.lozovoi.service.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 
 import java.util.Date;
 import java.util.List;
@@ -36,5 +38,6 @@ public class User {
 
     @OneToMany
     @JoinColumn(name = "user_id")
+    @OnDelete(action = OnDeleteAction.CASCADE)
     private List<Car> cars;
 }
