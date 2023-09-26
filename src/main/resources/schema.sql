@@ -8,9 +8,6 @@ CREATE TABLE users
     role varchar(255) not null,
     primary key (id)
 );
-
-
-
 CREATE TABLE cars
 (
     user_id integer not null,

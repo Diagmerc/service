@@ -1,15 +1,14 @@
 package ru.lozovoi.service.domain;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 import java.util.List;
 
-@Data
 @Entity
+@Setter
+@Getter
 @Table(name = "users")
 @AllArgsConstructor
 @NoArgsConstructor
