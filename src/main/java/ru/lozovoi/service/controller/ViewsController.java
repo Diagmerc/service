@@ -3,6 +3,7 @@ package ru.lozovoi.service.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import ru.lozovoi.service.domain.Car;
 import ru.lozovoi.service.service.CarService;
@@ -20,10 +21,9 @@ public class ViewsController {
         this.carService = carService;
     }
 
-    @GetMapping("/record")
-    public String getAllrecords(Model model, @RequestBody Car car) {
-        Long id = car.getId();
-        model.addAttribute("record", recordService.recordsList(car.getId()));
+    @GetMapping("/record/{id}")
+    public String getAllrecords(Model model, @PathVariable Long id) {
+        model.addAttribute("record", recordService.recordsList(id));
         return "records";
     }
     @GetMapping("/place")
