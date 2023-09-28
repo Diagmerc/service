@@ -26,9 +26,19 @@ public class CarController {
 
     @GetMapping("/cars")
     public String getAll(Model model, Principal principal) {
-        Long id = getId(principal).getId();
-        model.addAttribute("car", carService.getCar(id));
+        Optional<User> byUsername = getUser(principal);
+        if (byUsername.get().getRole().equals("ROLE_ADMIN")) {
+            model.addAttribute("car", carService.getAllCar());
+        } else {
+            Long id = byUsername.get().getId();
+            model.addAttribute("car", carService.getCar(id));
+        }
         return "mycars";
+    }
+
+    private Optional<User> getUser(Principal principal) {
+        Optional<User> byUsername = userDAO.findByUsername(principal.getName());
+        return byUsername;
     }
 
     @GetMapping("/cars/carForm")
@@ -41,14 +51,9 @@ public class CarController {
 //        if (result.hasErrors()) {
 //            return "record-form";
 //        }
-        car.setUser(getId(principal));
+        car.setUser(getUser(principal).get());
         carService.create(car);
 
         return "redirect:/cars";
-    }
-
-    private User getId(Principal principal) {
-        Optional<User> byUsername = userDAO.findByUsername(principal.getName());
-        return byUsername.get();
     }
 }

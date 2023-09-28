@@ -20,6 +20,10 @@ public class CarService {
         return carDAO.findAllById(id);
     }
 
+    public List<Car> getAllCar(){
+        return carDAO.findAll();
+    }
+
     @Transactional
     public Car create(Car car) {
         return carDAO.save(car);

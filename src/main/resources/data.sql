@@ -12,8 +12,8 @@ INSERT INTO cars (user_id, vin, motor)
 VALUES (2,'WDC1641821A223521', 'BENZIN'),
        (2,'WDC1661821A223521', 'BENZIN'),
        (2,'WDC2221821A223521', 'BENZIN'),
-       (3,'WDC2531821A223521', 'BENZIN'),
-       (3,'WDD2051821A223521', 'BENZIN');
+       (1,'WDC2531821A223521', 'BENZIN'),
+       (1,'WDD2051821A223521', 'BENZIN');
 
 INSERT INTO record (car_id, text, date, type)
 VALUES (1, 'change oil', '2020-01-30 10:00:00',  'PLANNED'),
