@@ -16,8 +16,12 @@ public class CarService {
         this.carDAO = carDAO;
     }
 
-    public List<Car> getCar(Long id) {
+    public List<Car> getCars(Long id) {
         return carDAO.findAllById(id);
+    }
+
+    public Car getCar(Long id) {
+        return carDAO.getReferenceById(id);
     }
 
     public List<Car> getAllCar(){

@@ -31,7 +31,7 @@ public class CarController {
             model.addAttribute("car", carService.getAllCar());
         } else {
             Long id = byUsername.get().getId();
-            model.addAttribute("car", carService.getCar(id));
+            model.addAttribute("car", carService.getCars(id));
         }
         return "mycars";
     }

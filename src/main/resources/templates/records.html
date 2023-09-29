@@ -33,6 +33,11 @@
       </div>
     </div>
   </nav>
+  <thead>
+  <tr>
+    <td><span th:text="${car.VIN}"> Type </span></td>
+  </tr>
+  </thead>
   <table class="table table-dark table-striped">
     <thead>
     <tr>
@@ -52,7 +57,7 @@
     </tr>
     </tbody>
   </table>
-  <a href="/cars/recordForm" class="btn btn-dark" role="button">Add</a>
+  <a th:href="'/cars/recordForm/'+${car.id}" class="btn btn-dark" role="button">Add</a>
   <button type="button" class="btn btn-secondary">Edit</button></div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

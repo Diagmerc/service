@@ -4,8 +4,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
-import ru.lozovoi.service.domain.Car;
 import ru.lozovoi.service.service.CarService;
 import ru.lozovoi.service.service.RecordService;
 
@@ -23,6 +21,7 @@ public class ViewsController {
 
     @GetMapping("/record/{id}")
     public String getAllrecords(Model model, @PathVariable Long id) {
+        model.addAttribute("car", carService.getCar(id));
         model.addAttribute("record", recordService.recordsList(id));
         return "records";
     }

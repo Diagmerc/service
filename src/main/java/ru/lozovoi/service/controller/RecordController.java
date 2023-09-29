@@ -24,7 +24,7 @@ public class RecordController {
         this.userDAO = userDAO;
     }
 
-    @GetMapping("/cars/recordForm")
+    @GetMapping("/cars/recordForm/{id}")
     public String showAddForm(Record record) {
         return "record-form";
     }
