@@ -5,8 +5,8 @@
     <title>Add Record</title>
 </head>
 <body>
-
 <form action="#" th:action="@{/record}" th:object="${record}" method="post">
+    <input type="hidden" class="" th:name="id_car" th:value="${id}">
     <label for="type">Type</label>
     <input type="text" th:field="*{type}" id="type" placeholder="Type">
     <label for="text">Text</label>

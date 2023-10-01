@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class CarService {
 
-    CarDAO carDAO;
+    private final CarDAO carDAO;
 
     public CarService(CarDAO carDAO) {
         this.carDAO = carDAO;
@@ -21,7 +21,7 @@ public class CarService {
     }
 
     public Car getCar(Long id) {
-        return carDAO.getReferenceById(id);
+        return carDAO.getById(id);
     }
 
     public List<Car> getAllCar(){

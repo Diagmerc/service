@@ -12,4 +12,7 @@ import java.util.List;
 public interface CarDAO extends JpaRepository<Car, Long> {
     @Query("SELECT c FROM Car c WHERE c.user.id =:userId")
     List<Car> findAllById(@Param("userId")Long id);
+
+    @Query("SELECT c FROM Car c WHERE c.id =:Id")
+    Car getCar(@Param("Id") Long id);
 }
