@@ -37,6 +37,13 @@ public class RecordController {
         return "record-form";
     }
 
+    @GetMapping("/record/update/{id}")
+    public String update(@PathVariable Long id, Model model) {
+        Record record = recordRepository.getById(id);
+        model.addAttribute("record", record);
+        return "record-form";
+    }
+
     @PostMapping(value = "/record")
     public String create(@Valid Record record, HttpServletRequest request) {
 //        if (result.hasErrors()) {

@@ -16,4 +16,8 @@ public class RecordRepository {
     public Record save(Record record) {
         return recordDAO.save(record);
     }
+
+    public Record getById(Long id){
+        return recordDAO.getById(Math.toIntExact(id));
+    }
 }

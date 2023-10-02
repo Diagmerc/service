@@ -44,6 +44,8 @@
       <th scope="col">Тип ремонта</th>
       <th scope="col">Описание</th>
       <th scope="col">Дата</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
     </thead>
     <tbody>
@@ -54,11 +56,12 @@
       <td><span th:text="${rec.type}"> Type </span></td>
       <td><span th:text="${rec.text}"> Record </span></td>
       <td><span th:text="${rec.date}"> Date </span></td>
+      <td><a th:href="'/record/update/'+${rec.id}"  class="btn btn-dark" role="button">Edit</a></td>
+      <td><a th:href="'/record/delete/'+${rec.id}"  class="btn btn-dark" role="button">Delete</a></td>
     </tr>
     </tbody>
   </table>
   <a th:href="'/cars/recordForm/'+${car.id}" class="btn btn-dark" role="button">Add</a>
-  <button type="button" class="btn btn-secondary">Edit</button></div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
