@@ -31,6 +31,12 @@ public class RecordController {
         this.carService = carService;
     }
 
+    @GetMapping("/record/delete/{id}")
+    public String deleteRecord(@PathVariable Long id){
+        recordRepository.deleteRecord(Long.valueOf(id));
+        return "redirect:/cars";
+    }
+
     @GetMapping("/cars/recordForm/{id}")
     public String showAddForm(@ModelAttribute("record") Record record, @PathVariable Long id, Model model) {
         model.addAttribute("id", id);

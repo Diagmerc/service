@@ -4,6 +4,7 @@ import jakarta.validation.Valid;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import ru.lozovoi.service.dao.UserDAO;
 import ru.lozovoi.service.domain.Car;
@@ -34,6 +35,19 @@ public class CarController {
             model.addAttribute("car", carService.getCars(id));
         }
         return "mycars";
+    }
+
+    @GetMapping("/car/update/{id}")
+    public String update(@PathVariable Long id, Model model) {
+        Car car = carService.getCar(id);
+        model.addAttribute("car", car);
+        return "car-form";
+    }
+
+    @GetMapping("/car/delete/{id}")
+    public String deleteRecord(@PathVariable Long id) {
+        carService.deleteCar(Long.valueOf(id));
+        return "redirect:/cars";
     }
 
     private Optional<User> getUser(Principal principal) {

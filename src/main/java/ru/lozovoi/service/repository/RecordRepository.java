@@ -20,4 +20,8 @@ public class RecordRepository {
     public Record getById(Long id){
         return recordDAO.getById(Math.toIntExact(id));
     }
+
+    public void deleteRecord(Long id){
+        recordDAO.delete(getById(id));
+    }
 }

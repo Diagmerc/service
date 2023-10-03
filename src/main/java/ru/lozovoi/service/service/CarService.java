@@ -24,8 +24,16 @@ public class CarService {
         return carDAO.getById(id);
     }
 
-    public List<Car> getAllCar(){
+    public List<Car> getAllCar() {
         return carDAO.findAll();
+    }
+
+    public Car save(Car car) {
+        return carDAO.save(car);
+    }
+
+    public void deleteCar(Long id) {
+        carDAO.delete(getCar(id));
     }
 
     @Transactional
