@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,7 +24,7 @@
                     <li class="nav-item">
                         <a class="nav-link" href="/cars">Мои автомобили</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" sec:authorize="hasRole('ADMIN')">
                         <a class="nav-link" href="/users">Пользователи</a>
                     </li>
                     <li class="nav-item">
@@ -32,9 +32,9 @@
                     </li>
                 </ul>
                 <ul class="navbar-nav me-right mb-0 mb-lg-0">
-                    <a class="nav-link" href="/auth/login">Войти</a>
-                    <a class="nav-link" href="/auth/registration">Зарегистрироваться</a>
-                    <a class="nav-link" th:href="@{/logout}" method="post">Выйти</a>
+                    <a class="nav-link" href="/auth/login" sec:authorize !="isAuthenticated()">Войти</a>
+                    <a class="nav-link" href="/auth/registration" sec:authorize !="isAuthenticated()">Зарегистрироваться</a>
+                    <a class="nav-link" th:href="@{/logout}" method="post" sec:authorize ="isAuthenticated()">Выйти</a>
                 </ul>
             </div>
         </div>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Автомобили</title>
@@ -40,8 +40,8 @@
             <th scope="col">Автомобиль</th>
             <th scope="col">Двигатель</th>
             <th scope="col">Записи</th>
-            <th scope="col"></th>
-            <th scope="col"></th>
+            <th scope="col" ></th>
+            <th scope="col" ></th>
         </tr>
         </thead>
         <tbody>
@@ -52,12 +52,12 @@
             <td><span th:text="${cr.VIN}"> VIN </span></td>
             <td><span th:text="${cr.motor}"> Motor </span></td>
             <td><a th:href="'/record/'+${cr.id}" class="btn btn-dark" role="button">Записи</a></td>
-            <td><a th:href="'/car/update/'+${cr.id}" class="btn btn-dark" role="button">Edit</a></td>
-            <td><a th:href="'/car/delete/'+${cr.id}" class="btn btn-dark" role="button">Delete</a></td>
+            <td><a th:href="'/car/update/'+${cr.id}" class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Edit</a></td>
+            <td><a th:href="'/car/delete/'+${cr.id}" class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Delete</a></td>
         </tr>
         </tbody>
     </table>
-    <a href="/cars/carForm" class="btn btn-dark" role="button">Add</a>
+    <a href="/cars/carForm" class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Add</a>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
