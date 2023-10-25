@@ -38,7 +38,7 @@
     <tr>
       <th scope="col">Id</th>
       <th scope="col">Имя</th>
-      <th scope="col">Почта</th>
+      <th scope="col">Телефон</th>
       <th scope="col">Дата регистрации</th>
     </tr>
     </thead>
@@ -49,7 +49,7 @@
     <tr th:each="user : ${users}">
       <td><span th:text="${user.id}"> Id </span></td>
       <td><span th:text="${user.username}"> Имя </span></td>
-      <td><span th:text="${user.email}"> Почта </span></td>
+      <td><span th:text="${user.phone}"> Телефон </span></td>
       <td><span th:text="${user.registered}"> Дата регистрации </span></td>
     </tr>
     </tbody>

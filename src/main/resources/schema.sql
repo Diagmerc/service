@@ -3,7 +3,7 @@ CREATE TABLE users
     id IDENTITY not null,
     username varchar(255) not null,
     password varchar  not null,
-    email varchar     ,
+    phone varchar     ,
     registered timestamp default now(),
     role varchar(255) not null,
     primary key (id)
@@ -20,6 +20,8 @@ CREATE TABLE record
 (
     id IDENTITY not null,
     text varchar not null,
+    recommend varchar not null,
+    mileage varchar not null,
     date timestamp default now() not null,
     type varchar not null,
     car_id  INTEGER NOT NULL ,

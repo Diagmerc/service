@@ -11,7 +11,7 @@
 <div class="container text-center">
     <nav class="navbar navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">#</a>
+            <a class="navbar-brand" href="#">РуМерс</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                     aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -28,18 +28,27 @@
                         <a class="nav-link" href="/users">Пользователи</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link" href="">Галерея</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link" href="/place">Как добраться</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="">Контакты</a>
                     </li>
                 </ul>
                 <ul class="navbar-nav me-right mb-0 mb-lg-0">
                     <a class="nav-link" href="/auth/login" sec:authorize !="isAuthenticated()">Войти</a>
-                    <a class="nav-link" href="/auth/registration" sec:authorize !="isAuthenticated()">Зарегистрироваться</a>
-                    <a class="nav-link" th:href="@{/logout}" method="post" sec:authorize ="isAuthenticated()">Выйти</a>
+                    <a class="nav-link" href="/auth/registration" sec:authorize
+                       !="isAuthenticated()">Зарегистрироваться</a>
+                    <a class="nav-link" th:href="@{/logout}" method="post" sec:authorize="isAuthenticated()">Выйти</a>
                 </ul>
             </div>
         </div>
     </nav>
-
+    <br>
+    <img src="https://c.wallhere.com/photos/ba/7e/car_sport_Mercedes_AMG_road_architecture_Headlights-1794255.jpg!d"
+         class="img-fluid" alt="...">
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"

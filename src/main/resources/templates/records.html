@@ -42,7 +42,9 @@
     <thead>
     <tr>
       <th scope="col">Тип ремонта</th>
+      <th scope="col">Пробег</th>
       <th scope="col">Описание</th>
+      <th scope="col">Рекомендации</th>
       <th scope="col">Дата</th>
       <th scope="col"></th>
       <th scope="col"></th>
@@ -54,7 +56,9 @@
     </tr>
     <tr th:each="rec : ${record}">
       <td><span th:text="${rec.type}"> Type </span></td>
+      <td><span th:text="${rec.mileage}"> Mileage </span></td>
       <td><span th:text="${rec.text}"> Record </span></td>
+      <td><span th:text="${rec.recommend}"> Recommendation </span></td>
       <td><span th:text="${rec.date}"> Date </span></td>
       <td><a th:href="'/record/update/'+${rec.id}"  class="btn btn-dark" role="button">Edit</a></td>
       <td><a th:href="'/record/delete/'+${rec.id}"  class="btn btn-dark" role="button">Delete</a></td>

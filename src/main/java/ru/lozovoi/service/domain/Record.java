@@ -25,6 +25,10 @@ public class Record {
 
     private String text;
 
+    private String recommend;
+
+    private String mileage;
+
     @Column(name = "date")
     private LocalDateTime date;
 
