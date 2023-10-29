@@ -31,8 +31,8 @@ public class CarController {
         if (byUsername.get().getRole().equals("ROLE_ADMIN")) {
             model.addAttribute("car", carService.getAllCar());
         } else {
-            Long id = byUsername.get().getId();
-            model.addAttribute("car", carService.getCars(id));
+            Integer id = byUsername.get().getId();
+            model.addAttribute("car", carService.getCars(Long.valueOf(id)));
         }
         return "mycars";
     }
@@ -45,7 +45,7 @@ public class CarController {
     }
 
     @GetMapping("/car/delete/{id}")
-    public String deleteRecord(@PathVariable Long id) {
+    public String deleteRecord(@PathVariable Integer id) {
         carService.deleteCar(Long.valueOf(id));
         return "redirect:/cars";
     }
