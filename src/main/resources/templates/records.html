@@ -35,12 +35,12 @@
       <td><span th:text="${rec.text}"> Record </span></td>
       <td><span th:text="${rec.recommend}"> Recommendation </span></td>
       <td><span th:text="${rec.date}"> Date </span></td>
-      <td><a th:href="'/record/update/'+${rec.id}"  class="btn btn-dark" role="button">Edit</a></td>
-      <td><a th:href="'/record/delete/'+${rec.id}"  class="btn btn-dark" role="button">Delete</a></td>
+      <td><a th:href="'/record/update/'+${rec.id}"  class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Edit</a></td>
+      <td><a th:href="'/record/delete/'+${rec.id}"  class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Delete</a></td>
     </tr>
     </tbody>
   </table>
-  <a th:href="'/cars/recordForm/'+${car.id}" class="btn btn-dark" role="button">Add</a>
+  <a th:href="'/cars/recordForm/'+${car.id}" class="btn btn-dark" role="button" sec:authorize="hasRole('ADMIN')">Add</a>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
         integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
         crossorigin="anonymous"></script>
