@@ -1,29 +1,34 @@
-# CREATE TABLE users
-# (
-#     id IDENTITY not null,
-#     username varchar(255) not null,
-#     password varchar  not null,
-#     phone varchar     ,
-#     registered timestamp default now(),
-#     role varchar(255) not null,
-#     primary key (id)
-# );
-# CREATE TABLE cars
-# (
-#     id IDENTITY not null,
-#     vin varchar not null,
-#     motor varchar not null,
-#     user_id     INTEGER      NOT NULL,
-#     FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
-# );
-# CREATE TABLE record
-# (
-#     id IDENTITY not null,
-#     text varchar not null,
-#     recommend varchar not null,
-#     mileage varchar not null,
-#     date timestamp default now() not null,
-#     type varchar not null,
-#     car_id  INTEGER NOT NULL ,
-#     FOREIGN KEY (car_id) REFERENCES cars(id) ON DELETE CASCADE
-# );
+CREATE DATABASE  IF NOT EXISTS `service`;
+
+CREATE TABLE IF NOT EXISTS `users` (
+                         `id` int NOT NULL AUTO_INCREMENT,
+                         `username` varchar(45) NOT NULL,
+                         `password` varchar(255) NOT NULL,
+                         `phone` varchar(45) DEFAULT NULL,
+                         `registered` date DEFAULT NULL,
+                         `role` varchar(45) NOT NULL,
+                         PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `cars` (
+                        `id` bigint NOT NULL AUTO_INCREMENT,
+                        `vin` varchar(45) NOT NULL,
+                        `motor` varchar(45) NOT NULL,
+                        `user_id` bigint NOT NULL,
+                        PRIMARY KEY (`id`),
+                        KEY `user_id_idx` (`user_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+CREATE TABLE IF NOT EXISTS `record` (
+                          `id` bigint NOT NULL AUTO_INCREMENT,
+                          `text` varchar(45) NOT NULL,
+                          `recommend` varchar(45) NOT NULL,
+                          `mileage` varchar(45) NOT NULL,
+                          `date` datetime NOT NULL,
+                          `type` varchar(45) NOT NULL,
+                          `car_id` bigint NOT NULL,
+                          PRIMARY KEY (`id`),
+                          KEY `car_id_idx` (`car_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
