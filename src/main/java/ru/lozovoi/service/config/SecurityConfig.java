@@ -10,7 +10,6 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
 import ru.lozovoi.service.service.UserService;
 
 @Configuration
@@ -27,7 +26,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf().disable().cors().disable().
-                authorizeHttpRequests(auth -> auth.requestMatchers("/auth/login", "/auth/registration", "/error", "/")
+                authorizeHttpRequests(auth -> auth.requestMatchers("/auth/login", "/auth/registration", "/error", "/", "/place", "/contacts")
                         .permitAll()
                         .requestMatchers("/users").hasRole("ADMIN")
                         .anyRequest()

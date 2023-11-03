@@ -1,3 +1,4 @@
-FROM tomcat
+FROM openjdk:17-jdk-alpine
+COPY target/app.war app.war
+ENTRYPOINT ["java","-jar","app.war"]
 
-COPY /target/service-0.0.1-SNAPSHOT.war /usr/local/tomcat/webapps/

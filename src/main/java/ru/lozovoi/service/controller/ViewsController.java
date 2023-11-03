@@ -29,4 +29,9 @@ public class ViewsController {
     public String getPlaceView() {
         return "place";
     }
+
+    @GetMapping("/contacts")
+    public String getContactsView() {
+        return "contacts";
+    }
 }

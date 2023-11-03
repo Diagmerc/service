@@ -7,60 +7,60 @@
     <title>Add Record</title>
 </head>
 <body>
-<!--<div class="input-group input-group-sm mb-3">-->
-<!--<form action="#" th:action="@{/record}" th:object="${record}" method="post">-->
-<!--    <input type="hidden" class="" th:name="id_car" th:value="${id}">-->
-<!--    <label for="type">Type</label>-->
-<!--    <input type="text" th:field="*{type}" id="type" placeholder="Type">-->
-<!--    <label for="text">Text</label>-->
-<!--    <input type="text" th:field="*{text}" id="text" placeholder="Text">-->
-<!--    <label for="text">Recommend</label>-->
-<!--    <input type="text" th:field="*{recommend}" id="recommend" placeholder="Recommendation">-->
-<!--    <label for="text">Mileage</label>-->
-<!--    <input type="text" th:field="*{mileage}" id="mileage" placeholder="Mileage">-->
-<!--    &lt;!&ndash;    <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>&ndash;&gt;-->
-<!--    <label for="date">Date</label>-->
-<!--    <input type="datetime-local" th:field="*{date}" id="date" placeholder="Date">-->
-<!--&lt;!&ndash;    <label for="id">Id</label>&ndash;&gt;-->
-<!--&lt;!&ndash;    <input type="number" th:field="*{id}" id="id" placeholder="Id">&ndash;&gt;-->
-<!--&lt;!&ndash;    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>&ndash;&gt;-->
-<!--    <input type="submit" value="Add Record">-->
-<!--</form>-->
-<!--</div>-->
-<form class="row g-3" action="#" th:action="@{/record}" th:object="${record}" method="post">
-    <div class="col-md-4">
-        <label for="validationDefault01" class="form-label">First name</label>
-        <input type="text" class="form-control" id="validationDefault01" value="Mark" required>
-    </div>
-    <div class="col-md-4">
-        <label for="validationDefault02" class="form-label">Last name</label>
-        <input type="text" class="form-control" id="validationDefault02" value="Otto" required>
-    </div>
-    <div class="col-md-4">
-        <label for="validationDefaultUsername" class="form-label">Username</label>
-        <div class="input-group">
-            <span class="input-group-text" id="inputGroupPrepend2">@</span>
-            <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>
-        </div>
-    </div>
-    <div class="col-md-6">
-        <label for="validationDefault03" class="form-label">City</label>
-        <input type="text" class="form-control" id="validationDefault03" required>
-    </div>
-    <div class="col-md-3">
-        <label for="validationDefault04" class="form-label">State</label>
-        <select class="form-select" id="validationDefault04" required>
-            <option selected disabled value="">Choose...</option>
-            <option>...</option>
-        </select>
-    </div>
-    <div class="col-md-3">
-        <label for="validationDefault05" class="form-label">Zip</label>
-        <input type="text" class="form-control" id="validationDefault05" required>
-    </div>
-    <div class="col-12">
-        <button class="btn btn-primary" type="submit">Submit form</button>
-    </div>
+<div class="input-group input-group-sm mb-3">
+<form action="#" th:action="@{/record}" th:object="${record}" method="post">
+    <input type="hidden" class="" th:name="id_car" th:value="${id}">
+    <label for="type">Type</label>
+    <input type="text" th:field="*{type}" id="type" placeholder="Type">
+    <label for="text">Text</label>
+    <input type="text" th:field="*{text}" id="text" placeholder="Text">
+    <label for="text">Recommend</label>
+    <input type="text" th:field="*{recommend}" id="recommend" placeholder="Recommendation">
+    <label for="text">Mileage</label>
+    <input type="text" th:field="*{mileage}" id="mileage" placeholder="Mileage">
+    <!--    <span th:if="${#fields.hasErrors('text')}" th:errors="*{text}"></span>-->
+    <label for="date">Date</label>
+    <input type="datetime-local" th:field="*{date}" id="date" placeholder="Date">
+<!--    <label for="id">Id</label>-->
+<!--    <input type="number" th:field="*{id}" id="id" placeholder="Id">-->
+<!--    <span th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>-->
+    <input type="submit" value="Add Record">
 </form>
+</div>
+<!--<form class="row g-3" action="#" th:action="@{/record}" th:object="${record}" method="post">-->
+<!--    <div class="col-md-4">-->
+<!--        <label for="validationDefault01" class="form-label">First name</label>-->
+<!--        <input type="text" class="form-control" id="validationDefault01" value="Mark" required>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--        <label for="validationDefault02" class="form-label">Last name</label>-->
+<!--        <input type="text" class="form-control" id="validationDefault02" value="Otto" required>-->
+<!--    </div>-->
+<!--    <div class="col-md-4">-->
+<!--        <label for="validationDefaultUsername" class="form-label">Username</label>-->
+<!--        <div class="input-group">-->
+<!--            <span class="input-group-text" id="inputGroupPrepend2">@</span>-->
+<!--            <input type="text" class="form-control" id="validationDefaultUsername" aria-describedby="inputGroupPrepend2" required>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--        <label for="validationDefault03" class="form-label">City</label>-->
+<!--        <input type="text" class="form-control" id="validationDefault03" required>-->
+<!--    </div>-->
+<!--    <div class="col-md-3">-->
+<!--        <label for="validationDefault04" class="form-label">State</label>-->
+<!--        <select class="form-select" id="validationDefault04" required>-->
+<!--            <option selected disabled value="">Choose...</option>-->
+<!--            <option>...</option>-->
+<!--        </select>-->
+<!--    </div>-->
+<!--    <div class="col-md-3">-->
+<!--        <label for="validationDefault05" class="form-label">Zip</label>-->
+<!--        <input type="text" class="form-control" id="validationDefault05" required>-->
+<!--    </div>-->
+<!--    <div class="col-12">-->
+<!--        <button class="btn btn-primary" type="submit">Submit form</button>-->
+<!--    </div>-->
+<!--</form>-->
 </body>
 </html>
